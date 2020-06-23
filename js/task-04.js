@@ -1,19 +1,20 @@
 "use strict";
 
-let credits = 23580;
-let pricePerDroid = 3000;
-let droid = prompt("Скільки дроїдів купити?");
-let totalPrice;
+const credits = 23580;
+const pricePerDroid = 3000;
+const droid = prompt("Скільки дроїдів купити?");
+console.log(` droid : `, droid);
+const totalPrice = droid * pricePerDroid;
+console.log(` totalPrice : `, totalPrice);
+const value = credits - totalPrice;
+console.log(` value : `, value);
 
 if (droid === null) {
-  droid = "Скасовано користувачем!";
+  console.log("скасовано користувачем!");
+} else if (totalPrice >= credits) {
+  console.log("недостатньо коштів на рахуну");
 } else {
-  totalPrice = pricePerDroid * droid;
+  console.log(
+    `Ви купили ${droid} дроїдів, на рахунку залишилося ${value} кредитів`
+  );
 }
-if (credits < totalPrice) {
-  console.log("недостатньо коштів на рахунку");
-} else {
-  credits -= totalPrice;
-}
-
-alert(`ви купили ${droid}, на рахунку залишилося ${credits} кредитів`);
